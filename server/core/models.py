@@ -77,12 +77,12 @@ class Users(BaseModel):
 
 
 class Studies(BaseModel):
-    key = CharField(255, null=True, unique=True)  # TBD this key should never be null, or should it?
-    title = CharField(255, default="")  # TBD when would we have a blank title?
+    key = CharField(255, null=True)  # TBD this key should never be null, or should it?
+    title = CharField(255, null=False)  # TBD when would we have a blank title?
     short_title = CharField(30, default="")  # TBD when would we have a blank short title?
     visible = BooleanField(default=False)
     description = CharField(1500, null=True)  # TBD what does null mean?
-    researcher_email = CharField(100, default="")  # TBD shouldn't this be null instead of default "" if there is no researcher email specified? (will change this anyway)
+    researcher_email = CharField(100, null=True)  # TBD shouldn't this be null instead of default "" if there is no researcher email specified? (will change this anyway)
 
 
 if os.getenv("TEST") == "True":
