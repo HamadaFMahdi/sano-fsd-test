@@ -7,6 +7,7 @@ export function get_studies() {
             .get("/studies")
             .then((response) => {
                 resolve(response);
+                console.log(response);
             })
             .catch((error) => {
                 reject(error);
